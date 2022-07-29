@@ -1,0 +1,64 @@
+{% load static %}
+
+<div style="width: 1200px; margin: 0 auto; height: 130px;">
+    <div style="text-align: right;">
+        <ul class="nav_top">
+            <li>
+                {% if request.COOKIES.mem_inid is none %}
+                <a href="/hotel/login">로그인</a>
+                {% endif %}
+            </li>
+            <li>
+                {% if request.COOKIES.mem_inid is none %}
+                <a href="/hotel/join">회원가입</a>
+                {% endif %}
+            </li>
+            <li>
+                {% if request.COOKIES.mem_inid is not none %}
+                <a href="/hotel/update">정보변경</a>
+                {% endif %}
+            </li>
+            <li>
+                {% if request.COOKIES.mem_inid is not none %}
+                <a href="/hotel/reserve_in4">예약확인</a>
+                {% endif %}
+            </li>
+            <li>
+                {% if request.COOKIES.mem_inid is not none %}
+                <a href="/hotel/logout">로그아웃</a>
+                {% endif %}
+            </li>
+            <li>
+                <select>
+                    <option>한국어</option>
+                    <option>영어</option>
+                </select>
+            </li>
+        </ul>
+    </div>
+    <ul class="hd_ul">
+        <li class="hd_reserv">
+            <a href="/hotel/room">예약 | Reservation</a>
+        </li>
+        <li class="hd_logo">
+            <a href="/hotel/index"><img src="{% static 'hotelapp/img/logo_black.png' %}"></a> 
+        </li>
+        <li>
+            <ul class="hotel_nav">
+                <li>
+                    <a href="/hotel/hotel_info">고려호텔 소개</a>
+                </li>
+                <li>
+                    <a href="/hotel/room">객실</a>
+                </li>
+                <li>
+                    <a href="/hotel/board">고객센터</a>
+                </li>
+                <li>
+                    <a href="/hotel/event">이벤트</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+</div>

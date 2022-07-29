@@ -48,10 +48,12 @@
                 <tbody>
                     {% for i0 in data %}
                     <tr>
-                        {% for i1 in i0 %}
-                        <td>{{i1}}</td>
-                        {% endfor %}
-                        <td><button>삭제</button></td>
+                        <form action="/hotel/ad_mem_delete/{{i0.0}}" method="get">
+                            {% for i1 in i0 %}
+                            <td>{{i1}}</td>
+                            {% endfor %}
+                            <td><button type="submit" name="{{i0.0}}" value="{{i0.0}}">삭제</button></td>
+                        </form>
                     </tr>
                     {% endfor %}
                 </tbody>

@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="{% static 'hotelapp/css/hotel.css'%}" rel= "stylesheet" type="text/css">
+        <title>이벤트</title>
+        <style>
+            .eve_li {padding: 50px 0; border-bottom: 1px solid #ddd; position: relative;}
+            .eve_li:last-child {margin-bottom: 100px; border-bottom: 0;}
+            .eve_li > img {width: 500px; height: 300px; display: inline-block;}
+            .eve_info {position: absolute; top: 70px; left: 550px;}
+            .eve_info li:nth-child(1) {font-size: 30px; font-weight: 800;}
+            .eve_info li:nth-child(2) {margin: 10px 0 30px; font-size: 18px; color: #555;}
+            .eve_info li:nth-child(3) {color: blue; font-weight: 900; font-size: 25px;}
+            .eve_fin {position: absolute; top: 50px; left: 0; background: #ff0000; color: #fff; padding: 5px 10px;}
+        </style>
+    </head>
+    <body>
+        {% include 'hotelapp/include/nav.html' %}
+        <div style="background:#f9f9f9; padding: 50px 0; margin-bottom: 50px;">
+            <div style="width: 1200px; margin: 0 auto;">
+                <h3 style="font-size: 27px;">이벤트</h3>
+                <p style="font-size: 18px; margin: 0;">고려호텔의 다양한 이벤트를 만나보세요</p>
+            </div> 
+        </div>
+        <div style="width: 1200px; margin: 0 auto;">
+                <ul>
+                    <li class="eve_li">
+                        <img src="{% static 'hotelapp/img/children.jpg' %}" alt=".">
+                        <ul class="eve_info">
+                            <li>{{eve.0.0}}</li>
+                            <li>{{eve.0.1}} ~ {{eve.0.2}}</li>
+                            <li>{{eve.0.3}}% 할인</li>
+                        </ul>
+                    </li>
+                    <li class="eve_li">
+                        <img src="{% static 'hotelapp/img/may.jpg' %}" alt=".">
+                        <ul class="eve_info">
+                            <li>{{eve.1.0}}</li>
+                            <li>{{eve.1.1}} ~ {{eve.1.2}}</li>
+                            <li>{{eve.1.3}}% 할인</li>
+                        </ul>
+                    </li>
+                    <li class="eve_li">
+                        <img src="{% static 'hotelapp/img/20year.jpg' %}" alt=".">
+                        <ul class="eve_info">
+                            <li>{{eve.2.0}}</li>
+                            <li>{{eve.2.1}} ~ {{eve.2.2}}</li>
+                            <li>{{eve.2.3}}% 할인</li>
+                        </ul>
+                    </li>
+                </ul>
+        </div>
+        {% include 'hotelapp/include/footer.html' %}
+    </body>
+</html>

@@ -42,29 +42,49 @@
             </div> 
         </div>
         <div style="width: 1200px; margin: 0 auto; padding-bottom: 100px;">
-        <table>
-            <tbody>
-                <hr>
-                <tr><th style = "font-size: 18px">글제목</th>  <td><textarea style = "width : 500px; border: 1px solid #999; height:30px" name="#" value=""></textarea><br></td>
-                </tr>
-                <tr><th style = "font-size: 18px">내용</th> <td> <textarea style ="width: 500px; border:1px solid #999; height: 300px"  type="text" name="#" value=""> </textarea><hr><br></td>
-                </tr>
-                <tr><th style = "font-size: 18px">핸드폰 번호</th>   <td style = "text-align :center"><input type="tel" name="핸드폰 번호" value="010-    -    "><br><hr></td>
-                </tr>
-                <tr><th style = "font-size: 18px">작성일시</th> <td style = "text-align :center"><input type="date" id = "currentDate" name="작성일시">
-                    <script>
-                        document.getElementById('currentDate').value = new Date().toISOString().substring(0, 10);;
-                    </script>
-                <br><hr></td>
-                </tr>
-                <tr><th style = "font-size: 18px">비밀글 여부</th> <td style = "text-align :center"><input type ="checkbox" name="비밀글" value = "0">비밀글<br><hr></td>
-                </tr>
-            </tbody>
-        </table>
+        <form action = "/hotel/board_done">
+            <table>
+                <tbody>
+                    <hr>
+                    <tr>
+                        <th style = "font-size: 18px">글제목</th>  
+                        <td>
+                            <input style = "width : 500px; border: 1px solid #999; height:30px" name="post_title" placeholder="제목을 입력해주세요">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style = "font-size: 18px">내용</th>
+                        <td>
+                            <textarea style ="width: 500px; border:1px solid #999; height: 300px"  type="text" name="post_cont" value="post_cont"> </textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style = "font-size: 18px">핸드폰 번호</th>
+                        <td style = "text-align :center">
+                            <input type="tel" name="핸드폰 번호" value="{{data.2}}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style = "font-size: 18px">작성일시</th> 
+                        <td style = "text-align :center">
+                            <input type="date" id = "currentDate" name="post_date">
+                            <script>
+                                document.getElementById('currentDate').value = new Date().toISOString().substring(0, 10);
+                            </script>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style = "font-size: 18px">비밀글 여부</th>
+                        <td style = "text-align :center"><input type ="checkbox" name="post_hide" value = "0">비밀글</td>
+                    </tr>
+                </tbody>
+            </table>
+            <input type="submit" class="b_btn" style="background: #000; color: #fff;" text-align: center; value="등록">
+        </form>
 
-
-    <a href="/hotel/board_done"  class="b_btn" style="background: #000; color: #fff;" text-align: center;>등록</a>
+    
     </div>
+
     {% include 'hotelapp/include/footer.html' %}
-    </body>
+</body>
 </html>

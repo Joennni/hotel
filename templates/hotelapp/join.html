@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="{% static 'hotelapp/css/bootspap.min.css'%}">
+        <link href="{% static 'hotelapp/css/hotel.css'%}" rel= "stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootspap@4.5.3/dist/css/bootspap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootspap@4.5.3/dist/js/bootspap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+        <title>고려호텔</title>
+        <style>
+            .overlap {
+                position: absolute;
+                top: 0; right: 0; z-index: 9;
+                font-size: 14px; color: #999; text-decoration: underline;
+                background: transparent;
+                padding: 5px 10px;
+                cursor: pointer;
+            }
+            input {border:1px solid #ddd; width: 100%; padding: 5px 10px; height: 50px; font-size: 16px;}
+            li h4 {margin: 30px 0 10px 0;}
+            .chk_btn {display: none;}
+            .chk_btn + label {margin-right: 15px;display: inline-block; position: relative; cursor: pointer; font-size: 17px;}
+            .chk_btn + label:before {
+                content:"";
+                width: 20px; height: 20px;
+                background: #ccc;
+                border-radius: 50px;
+                cursor: pointer;
+                vertical-align: middle;
+                margin-right: 10px;
+                display: inline-block;
+                box-shadow: 1px 1px 2px rgba(0,0,0,.3) inset;
+            }
+            .chk_btn:checked + label:before {background: #ffba00;}
+            .chk_btn:checked + label {font-weight: 900;}
+            .submit_btn {background: #000; color: #fff; margin-top: 50px; cursor: pointer;}
+            .submit_btn:hover {background: #ffba00; color: #000;}
+        </style>
+    </head>
+    <body>
+        {% include 'hotelapp/include/nav.html' %}
+        <div style="background: #f9f9f9;">
+            <div style="width: 500px; margin: 0 auto; padding: 70px 0;">
+                <div style="text-align: center; padding-bottom: 30px;">
+                    <h3 style="font-size: 17px; margin-bottom: 20px;">회원가입</h3>
+                    <p style="font-size: 25px; font-weight: 100;">고려호텔 회원만을 위한</p>
+                    <p style="font-size: 25px; font-weight: 100;">다양한 혜택과 서비스를 누려보세요.</p>
+                </div>
+
+                <form action="/hotel/join_suc/" method="get">
+                    <ul>
+                        <li style="position: relative;">
+                            <h4>아이디</h4>
+                            <button class="overlap">중복확인</button>
+                            <input id = "mem_id" type="text" name="mem_id" placeholder="아이디 입력">
+                        </li>
+                        <li>
+                            <h4>비밀번호</h4>
+                            <input id="mem_pw" type="password" name="mem_pw"  placeholder="영문자 6~30자이내">
+                        </li>
+                        <li>
+                            <h4>비밀번호 확인</h4>
+                            <input type="password" placeholder="비밀번호 한번 더 입력">
+                        </li>
+                        <li>
+                            <h4>이름</h4>
+                            <input id="mem_name" type="text" placeholder="한글" name="mem_name">
+                        </li>
+                        <li>
+                            <h4>이메일</h4>
+                            <input id="mem_mail" type="email" placeholder="예) exmaple@example.net" name="mem_email">
+                        </li>
+                        <li>
+                            <h4>핸드폰 번호</h4>
+                            <input id="mem_tel" type="tel" placeholder="예) 01012345678" name="mem_tel">
+                        </li>
+                        <li>
+                            <h4>생일</h4>
+                            <input id="mem_bir" type="number" placeholder="예) 881231" name="mem_regno">
+                        </li>
+                        <li>
+                            <h4>성별</h4>
+                            <input type="radio" id="gender1" name="mem_gender" value="1" class="chk_btn">
+                            <label for="gender1">남성</label>
+                            <input type="radio" id="gender2" name="mem_gender" value="0" class="chk_btn">
+                            <label for="gender2">여성</label>
+                        </li>
+                        <li>
+                            <input type="submit" value="회원가입" class="submit_btn">
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+        {% include 'hotelapp/include/footer.html' %}
+    </body>
+</html>

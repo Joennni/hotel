@@ -1,0 +1,51 @@
+{% load static %}
+<!doctype html>
+<html>
+    <head>
+        <title> 예약 확인 </title>
+        <link href="{% static 'hotelapp/css/hotel.css' %}" rel="stylesheet" type="text/css">
+        <style>
+            .tb {
+                width: 100%;
+                border-top: 1px solid #000;
+                border-bottom: 1px solid #000;
+                margin-top: 50px;
+            }
+            .tb th {padding: 15px 5px;}
+            .tb td {padding: 20px 5px; text-align: center; border-top: 1px solid #ddd;}
+        </style>
+    </head>
+    <body>
+        {% include 'hotelapp/include/nav.html' %}
+        <div style="width: 1200px; margin: 50px auto">
+            <h2 style="color: blue; margin-bottom: 30px;">하단에서 예약 내역을 확인할 수 있습니다.</h2>
+            <div style="position: relative;">
+                <img src="{% static 'hotelapp/img/room5.png' %}" width="600px">
+                <h3 style="position: absolute; bottom: 100px; left: 620px;"> 고려 호텔 위치: 세종특별자치시 세종로 2511</h3>
+                <h3 style="position: absolute; bottom: 40px; left: 620px;"> 문의가 있으시다면 0444-860-2222 또는 goryu@goryuhotel.com로 연락 바랍니다</h3>
+            </div>
+            <table class="tb">
+                <thead>
+                    <tr>
+                        <th>객실호수</th>
+                        <th>해당 호실 전망</th>
+                        <th>체크인</th>
+                        <th>체크아웃</th>
+                        <th>총인원수</th>
+                        <th>예약자 성함</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for col in info %}
+                    <tr>
+                        {% for data in col %}
+                        <td>{{data}}</td>
+                        {%endfor%}
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+        </div>
+        {% include 'hotelapp/include/footer.html' %}
+    </body>
+</html>

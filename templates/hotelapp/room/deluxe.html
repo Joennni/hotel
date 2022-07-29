@@ -1,0 +1,51 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="{% static 'hotelapp/css/hotel.css'%}" rel= "stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script> <title>twin room</title>
+        <script>
+            $(document).ready(function () {
+                $('.bxslider').bxSlider({ // 클래스명 주의!
+                    auto: true, // 자동으로 애니메이션 시작
+                    speed: 500,  // 애니메이션 속도
+                    pause: 5000,  // 애니메이션 유지 시간 (1000은 1초)
+                    mode: 'horizontal', // 슬라이드 모드 ('fade', 'horizontal', 'vertical' 이 있음)
+                    autoControls: true, // 시작 및 중지버튼 보여짐
+                    pager: true, // 페이지 표시 보여짐
+                });
+            });
+        </script>
+        <title>deluxe room</title>
+    </head>
+    <body>
+        {% include 'hotelapp/include/nav.html' %}
+
+        <div style="background: #f9f9f9; padding: 50px 0;">
+            <ul style="width: 1200px; margin: 0 auto;">
+                <li><h2 style="font-size: 30px; margin-bottom: 5px;">디럭스룸</h2></li>
+                <li>클래식한 감성미 가능한 디럭스</li>
+            </ul>
+        </div>
+        <div style="margin: 50px auto; width: 1200px;">
+            <ul class="bxslider">
+                <li style="text-align: center;"><img src="{% static 'hotelapp/img/room7.png' %}" style="display: inline-block;"></li>
+                <li style="text-align: center;"><img src="{% static 'hotelapp/img/room8.png' %}" style="display: inline-block;"></li>
+                <li style="text-align: center;"><img src="{% static 'hotelapp/img/room9.png' %}" style="display: inline-block;"></li>
+            </ul>
+
+        
+            <ul style="line-height: 2; font-size: 20px; padding-bottom: 50px;">
+                <li><h2>유의사항</h2></li>
+                <li><h5>상기 이미지 컷은 실제와 다를 수 있습니다.</li>
+                <li><h5>체크인은 15:00이며 체크아웃은 12:00입니다.</li>
+                <li><h5>객실 1실 당 최대 성인 3인까지 투숙 가능하며, 소인 동반시 최대 성인2인, 소인2인까지 투숙 가능합니다.(소인:37개월_만12세)</li>
+                <li><h5>결제 후 날짜 변경은 불가능 하며 예약 취소는 체크인 18:00까지만 가능합니다.</li>
+                <li><h5>기타 문의는 고객센터 게시판에 가능합니다.</li>
+            </ul>
+        </div>
+        {% include 'hotelapp/include/footer.html' %}
+    </body>
+</html>

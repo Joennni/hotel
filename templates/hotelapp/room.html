@@ -1,0 +1,102 @@
+{% load static %}
+<!doctype html>
+<html>
+    <head>
+        <title>ROOOM LIST</title>
+        <link href="{% static 'hotelapp/css/hotel.css' %}" rel="stylesheet" type="text/css">
+        <style>
+            .room_list {
+                border-bottom: 1px solid #ddd;
+                padding: 50px 0;
+                position: relative;
+            }
+            .room_list img {width: 550px;}
+            .room_list ul {
+                position: absolute;
+                top: 75px; left: 600px;
+            }
+            .room_list ul li:nth-child(1) {
+                font-size: 30px;
+                font-weight: 900;
+                margin-bottom: 10px;
+            }
+            .room_list ul li:nth-child(3){
+                color: #999; 
+                text-decoration: underline;
+                padding: 10px 0;
+                font-size: 17px;
+            }
+            .room_list ul li:nth-child(4){margin-top: 40px; font-size: 17px;}
+            .room_list ul li:nth-child(5){font-size: 40px; font-weight: 100;}
+            .room_list ul li:nth-child(6) a{
+                color: #fff;
+                background: #000;
+                width: 200px; height: 55px; line-height: 55px; text-align: center;
+                display: inline-block;
+                margin-top: 20px;
+            }
+        </style>
+    </head>
+
+    <body>
+        {% include 'hotelapp/include/nav.html' %}
+        <div style="background: #f9f9f9; padding: 50px 0;">
+            <h2 style="font-size: 30px; width: 1200px; margin: 0 auto;">객실 목록 </h2>
+        </div>
+        <div style="width: 1200px; margin: 30px auto 50px;">
+
+            <div class="room_list"> 
+                <img src="{% static 'hotelapp/img/room10.png' %}">
+                <ul>
+                    <li>디럭스</li>
+                    <li>클래식한 감성미 가능한 디럭스</li>
+                    <li><a href="/hotel/deluxe/">자세히 보기</a></li>
+                    <li>1박</li>
+                    <li>180,000 KRW</li>
+                    <li><a href="/hotel/reserve/">예약 | Reservaiton </a></li>
+                </ul>
+            </div>
+
+            <div class="room_list"> 
+                <img src="{% static 'hotelapp/img/room2.png' %}">
+                <ul>
+                    <li>비즈니스룸</li>
+                    <li>내 집처럼 편안하고 아늑한 비즈니스룸</li>
+                    <li><a href="/hotel/bussiness/">자세히 보기</a></li>
+                    <li>1박</li>
+                    <li>300,000 KRW</li>
+                    <li><a href="/hotel/reserve/">예약 | Reservaiton </a></li>
+                </ul>
+            </div>
+
+            <div class="room_list"> 
+                <img src="{% static 'hotelapp/img/room9.png' %}">
+                <ul>
+                    <li>트윈룸</li>
+                    <li>한층 여유로운 공간과 세련된 인테리어가 어울러진 트윈 룸</li>
+                    <li><a href="/hotel/twin/">자세히 보기</a></li>
+                    <li>1박</li>
+                    <li>510,000 KRW</li>
+                    <li><a href="/hotel/reserve/">예약 | Reservaiton </a></li>
+                </ul>
+            </div>
+
+            <div class="room_list" style="border-bottom: 0;"> 
+                <img src="{% static 'hotelapp/img/room3.png' %}">
+                <ul>
+                    <li>스위트룸</li>
+                    <li>고급스로운 인테리어와 기품이 흐르는 스위트룸</li>
+                    <li><a href="/hotel/suite/">자세히 보기</a></li>
+                    <li>1박</li>
+                    <li>550,000 KRW</li>
+                    <li><a href="/hotel/reserve/">예약 | Reservaiton </a></li>
+                </ul>
+            </div>
+        </div>
+    
+        {% include 'hotelapp/include/footer.html' %}
+    
+        
+    </body>
+</html>
+

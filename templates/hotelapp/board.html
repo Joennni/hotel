@@ -42,8 +42,10 @@
             </div> 
         </div>
         <div style="width: 1200px; margin: 0 auto; padding-bottom: 100px;">
-            <a href="/hotel/board_write" class="b_btn" style="margin-bottom: 10px; background: #000; color: #fff;">문의작성</a>
-            <a href="/hotel/board_write" class="b_btn" style="margin-bottom: 10px; background: #ffba00; color: #000;">후기작성</a>
+
+            <a href="/hotel/board_write" class="b_btn" style="margin: 0 7px 30px 0; background: #000; color: #fff;">문의작성</a>
+            <a href="/hotel/board_write" class="b_btn" style="margin: 0 0 30px; background: #ffba00; color: #000;">후기작성</a>
+
             <table class="b_table">
                 <colgroup>
                     <col width="10%">
@@ -64,16 +66,38 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for col in bd %}
-                    <tr>
-                        {% for data in col %}
-                        <td>{{data}}</td>
+                    {% if board_list %}
+                        {% for data in board_list %}
+                        <tr>
+                            {% for i in data %}
+                            <td>{{i}}</td>
+                            {% endfor %}
+                        </tr>
                         {% endfor %}
-                    </tr>
-                    {% endfor %}
+                    {% endif %}
                 </tbody>
             </table>
+            <div class="page_wr">
+                {% if board_list.has_previous %}
+                    <a class="abutton" href="?page=1"><<</a>
+                    <a class="abutton" href="?page={{ board_list.previous_page_number }}"><</a>
+                {% endif %}
 
+                {% for page in board_list.paginator.page_range %}
+                    {% if page >= board_list.number|add:-2 and page <= board_list.number|add:2 %}
+                    <span class="{% if page == board_list.number %}current{% endif %}">
+                        <a href="?page={{ page }}">{{ page }}</a>
+                    </span>
+                    {% elif page >= board_list.number|add:-3 and page <= board_list.number|add:3 %}
+
+                    {% endif %}
+                {% endfor %}
+
+                {% if board_list.has_next %}
+                    <a class="abutton" href="?page={{ board_list.next_page_number }}">></a>
+                    <a class="abutton" href="?page={{ board_list.paginator.num_pages }}">>></a>
+                {% endif %}
+            </div>
         </div>
         {% include 'hotelapp/include/footer.html' %}
     </body>
